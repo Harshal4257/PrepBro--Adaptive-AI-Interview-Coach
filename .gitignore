@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+.pytest_cache/
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+data/vector_store/
+*.log
+logs/
+.streamlit/secrets.toml
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Personal interview-preparation material (keep local; do not publish)
+docs/project_handbook.md
+docs/demo.md
+docs/interview_notes.md
+docs/star_explanation.md
+docs/resume_material.md

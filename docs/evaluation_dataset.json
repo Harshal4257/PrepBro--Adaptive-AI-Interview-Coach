@@ -1,0 +1,14 @@
+[
+  {"topic": "Python", "question": "How do generators help with large data pipelines?", "expected_key_concepts": ["lazy evaluation", "yield", "memory efficiency", "iterators"]},
+  {"topic": "Python", "question": "When would you use a context manager?", "expected_key_concepts": ["resource cleanup", "with statement", "__enter__", "__exit__"]},
+  {"topic": "Machine Learning", "question": "How would you detect overfitting?", "expected_key_concepts": ["train versus validation gap", "cross-validation", "generalization"]},
+  {"topic": "Machine Learning", "question": "Why can accuracy be misleading?", "expected_key_concepts": ["class imbalance", "precision", "recall", "F1"]},
+  {"topic": "Deep Learning", "question": "What causes vanishing gradients?", "expected_key_concepts": ["small derivatives", "deep networks", "activation functions", "residual connections"]},
+  {"topic": "Deep Learning", "question": "What is dropout used for?", "expected_key_concepts": ["regularization", "training only", "reduce co-adaptation"]},
+  {"topic": "Transformers", "question": "Explain self-attention.", "expected_key_concepts": ["queries keys values", "attention weights", "token relationships", "parallel processing"]},
+  {"topic": "Transformers", "question": "Why are positional encodings needed?", "expected_key_concepts": ["no inherent order", "token positions", "sequence information"]},
+  {"topic": "LLM Fundamentals", "question": "What is prompt engineering?", "expected_key_concepts": ["instructions", "context", "examples", "evaluation"]},
+  {"topic": "LLM Evaluation", "question": "How would you evaluate an LLM support assistant?", "expected_key_concepts": ["representative dataset", "quality metrics", "failure cases", "human review"]},
+  {"topic": "LLM Evaluation", "question": "Why should an LLM evaluation set be representative?", "expected_key_concepts": ["real use cases", "distribution", "edge cases", "bias"]},
+  {"topic": "Prompt Engineering", "question": "How would you make a prompt output reliable JSON?", "expected_key_concepts": ["schema", "structured output", "validation", "retry or repair"]}
+]

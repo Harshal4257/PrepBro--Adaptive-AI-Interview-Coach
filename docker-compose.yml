@@ -1,0 +1,40 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    environment:
+      LLM_PROVIDER: ${LLM_PROVIDER:-gemini}
+      LLM_MODEL: ${LLM_MODEL:-gemini-3.1-flash-lite}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      MAX_QUESTIONS: ${MAX_QUESTIONS:-8}
+      INITIAL_DIFFICULTY: ${INITIAL_DIFFICULTY:-Easy}
+      MINIMUM_SCORE_THRESHOLD: ${MINIMUM_SCORE_THRESHOLD:-6.0}
+      MAX_QUERY_LENGTH: ${MAX_QUERY_LENGTH:-12000}
+      MAX_ANSWER_LENGTH: ${MAX_ANSWER_LENGTH:-6000}
+      MAX_OUTPUT_TOKENS: ${MAX_OUTPUT_TOKENS:-700}
+      LLM_TIMEOUT_SECONDS: ${LLM_TIMEOUT_SECONDS:-60}
+      LLM_MAX_RETRIES: ${LLM_MAX_RETRIES:-1}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      APP_ENV: ${APP_ENV:-production}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:8501,http://127.0.0.1:8501}
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    environment:
+      API_BASE_URL: ${API_BASE_URL:-http://backend:8000}
+    ports:
+      - "8501:8501"
+    depends_on:
+      backend:
+        condition: service_healthy
